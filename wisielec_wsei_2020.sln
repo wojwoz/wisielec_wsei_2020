@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wisielec_wsei_2020", "wisielec_wsei_2020.csproj", "{EBDFD058-A26E-42C5-BCCA-5213300A658D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBDFD058-A26E-42C5-BCCA-5213300A658D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDFD058-A26E-42C5-BCCA-5213300A658D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDFD058-A26E-42C5-BCCA-5213300A658D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDFD058-A26E-42C5-BCCA-5213300A658D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2D55450-F6A5-4D89-BEE4-B04FB3692F0D}
+	EndGlobalSection
+EndGlobal
