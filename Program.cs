@@ -42,19 +42,26 @@ namespace wisielec_wsei_2020
             Console.WriteLine("Cześć " + name);
             Console.WriteLine("czy znasz zasady gry? (t/m)");
             string answer = Console.ReadLine();
-            if (answer == "t")
+            
+
+            if (answer.ToLower() == "t")
             {
                 Console.WriteLine("Zaczynamy grę!");
             }
-            else
+            else if(answer.ToLower() == "n")
             {
                 Console.WriteLine("\tPierwszy gracz wymyśla słowo, ujawniając na przykład za pomocą poziomych kresek liczbę tworzących je liter. \nDrugi z graczy stara się odgadnąć litery słowa. Za każdym razem, gdy mu się to uda, pierwszy gracz wstawia literę w odpowiednie miejsce; \nw przeciwnym wypadku rysuje element symbolicznej szubienicy i wiszącego na niej ludzika. Jeżeli pierwszy gracz narysuje kompletnego „wisielca” zanim drugi odgadnie słowo, wówczas wygrywa. \nW zależności od wcześniej ustalonego stopnia skomplikowania rysunku „wisielca” (liczba elementów potrzebna do jego narysowania), gra pozwala na mniej lub więcej pomyłek odgadującego[1].");
+            }
+
+            else
+            {
+                Console.WriteLine("błędna odpowiedź");
             }
 
             Console.WriteLine("Losuj słowo");
             Console.ReadKey();
             Random los = new Random();
-           
+
 
             string[] words = {
                 "Alaska",
@@ -115,14 +122,23 @@ namespace wisielec_wsei_2020
             "instrument np. poprzeczny",
             "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
 
-        int wordID = los.Next(words.Length);
-          
-            
-        
-             Console.WriteLine(words[wordID]); // wylosowane słowo do odgadnięcia. 
-            Console.WriteLine(prompt.GetValue(wordID)); // podpowiedź
+            int wordID = los.Next(words.Length);
 
-           
+            string haslo = words[wordID];
+
+
+
+
+
+
+            Console.WriteLine(haslo); // wylosowane słowo do odgadnięcia. 
+
+            Console.WriteLine(prompt.GetValue(wordID)); // podpowiedź
+            string test = Console.ReadLine(); // sprawdzanie litery
+            bool a = haslo.Contains(test);
+            Console.WriteLine(a);
+
+            Console.ReadLine();
             Console.ReadKey();
         }
     }
