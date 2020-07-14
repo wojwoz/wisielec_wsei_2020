@@ -54,6 +54,7 @@ namespace wisielec_wsei_2020
             Console.WriteLine("Losuj słowo");
             Console.ReadKey();
             Random los = new Random();
+           
 
             string[] words = {
                 "Alaska",
@@ -88,14 +89,40 @@ namespace wisielec_wsei_2020
                 "falbana"
             };
 
+            string[] prompt =
+            { "sprzedana przez rosję do USA","można się w niej schronić latem", "inaczej kawon", "błękitna krew",
+            "pierwotniak",
+            "inaczej figa rajska",
+            "pierwszy astrologiczny znak zodiaku",
+            "człowiek ze śniegu",
+            "spodnie i wyspy",
+            "może być wieprzowy",
+            "lata na miotle",
+            "ciągle ucieka",
+            "rozmówca hamleta",
+            "roślina z rodziny rutowatych",
+            "grzeje w zimie osłania latem",
+            "moja twierdza",
+            "wieloletnia roślina  o zdrewniały jednym pędzie głównym np. bonsai",
+            "może być kolczasty",
+            "np.Jakubowa lub tytuł piosenki led zeppelin",
+            "Latał na nim Alladyn",
+            "w czasie pożaru",
+            "inaczej poemat",
+            "stary kontynent",
+            "kraj w Afryce",
+            "państwo Ozyrysa",
+            "instrument np. poprzeczny",
+            "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
 
-            int wordID = los.Next(words.Length);
-            Console.WriteLine(words[wordID]);
-           
+        int wordID = los.Next(words.Length);
           
+            
+        
+             Console.WriteLine(words[wordID]); // wylosowane słowo do odgadnięcia. 
+            Console.WriteLine(prompt.GetValue(wordID)); // podpowiedź
 
-
-
+           
             Console.ReadKey();
         }
     }
