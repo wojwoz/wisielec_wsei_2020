@@ -1,69 +1,93 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace wisielec_wsei_2020
 {
     class Program
     {
-      
+
         static void Main(string[] args)
         {
-
+            //nic  nie wnosząca do gry "grafika
             Console.WriteLine("Witam w grze wisielec!");
-            Console.WriteLine("********************");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                *   *");
-            Console.WriteLine("*                *   *");
-            Console.WriteLine("*            *     *     *");
-            Console.WriteLine("*              *   *   *");
-            Console.WriteLine("*                * * *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  *");
-            Console.WriteLine("*                  * *");
-            Console.WriteLine("*                 *   *");
-            Console.WriteLine("*                *     *");
-            Console.WriteLine("*               *       *");
-            Console.WriteLine("*              *          *");
-            Console.WriteLine("*");
-            Console.WriteLine("*");
-            Console.WriteLine("*");
-            Console.WriteLine("**********************************");
-            Console.WriteLine("**********************************");
-
-
-
+            Console.WriteLine("          ********************");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                *   *");
+            Console.WriteLine("          *                *   *");
+            Console.WriteLine("          *            *     *     *");
+            Console.WriteLine("          *              *   *   *");
+            Console.WriteLine("          *                * * *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  *");
+            Console.WriteLine("          *                  * *");
+            Console.WriteLine("          *                 *   *");
+            Console.WriteLine("          *                *     *");
+            Console.WriteLine("          *               *       *");
+            Console.WriteLine("          *              *          *");
+            Console.WriteLine("          *");
+            Console.WriteLine("          *");
+            Console.WriteLine("          *");
+            Console.WriteLine("          **********************************");
+            Console.WriteLine("          **********************************");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Podaj imię: ");
+            Console.WriteLine();
+            Console.WriteLine();
 
             string name = Console.ReadLine();
 
-            Console.WriteLine("Cześć " + name);
-            Console.WriteLine("czy znasz zasady gry? (t/m)");
-            string answer = Console.ReadLine();
+            Console.WriteLine("Cześć " + name); //wyświetla powitanie gracza
+            Console.WriteLine("czy znasz zasady gry? (t/m)"); //weryfikacja znajomości zasad gry
+                                                              //string answer = Console.ReadLine(); //odpowiedź udzielona przez gracza
+
+            string decyzja = Console.ReadLine();
+
+            while (decyzja.ToLower() == "t")
+            {
+                
+                if (decyzja.ToLower() == "t")
+                {
+                    Console.WriteLine("Zaczynamy grę!");
+
+                    break;
+                }
+                else if (decyzja.ToLower() == "n")
+                {
+                    Console.WriteLine("Zapoznaj się z zasadami gry!");
+                    Console.WriteLine("zasady");
+                    Console.WriteLine("Czy możemy zaczynać? Odp:  (T)ak lub (N)ie");
+                   
+
+                   
+                }
+                
+
+            }
 
 
-           
+
+            /*
             // do przebudowy
-            if (answer.ToLower() == "t")
+            if (answer.ToLower() == "t") //jeśli gracz wybierze  t  rozpoczynamy grę
             {
                 Console.WriteLine("Zaczynamy grę!");
                 Console.Clear();
             }
-            else if (answer.ToLower() == "n")
+            else if (answer.ToLower() == "n") //jeśli gracz wybierze  n  musi zapoznać się z zasadami
             {
                 Console.WriteLine("\tPierwszy gracz wymyśla słowo, ujawniając na przykład za pomocą poziomych kresek liczbę tworzących je liter. \nDrugi z graczy stara się odgadnąć litery słowa. Za każdym razem, gdy mu się to uda, pierwszy gracz wstawia literę w odpowiednie miejsce; \nw przeciwnym wypadku rysuje element symbolicznej szubienicy i wiszącego na niej ludzika. Jeżeli pierwszy gracz narysuje kompletnego „wisielca” zanim drugi odgadnie słowo, wówczas wygrywa. \nW zależności od wcześniej ustalonego stopnia skomplikowania rysunku „wisielca” (liczba elementów potrzebna do jego narysowania), gra pozwala na mniej lub więcej pomyłek odgadującego[1].");
             }
 
             else
             {
-                Console.WriteLine("błędna odpowiedź");
+                Console.WriteLine("błędna odpowiedź, wybierz T -  jak tak  lun N - jak nie! ");
             }
-
+            */
             Console.WriteLine("Losuj słowo - naciśnij dowolny klawisz");
             Console.ReadKey();
             Console.Clear();
@@ -130,58 +154,77 @@ namespace wisielec_wsei_2020
             "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
 
 
-            int wordID = los.Next(words.Length);
+            int wordID = los.Next(words.Length); //losowanie indeksu słowa
 
             string haslo = words[wordID]; // losowanie słowa
-            int ileLiterWslowie = haslo.Length;
+            int ileLiterWslowie = haslo.Length; // zasłonięcie liter
             char[] litery = new char[haslo.Length];
 
-            for(int i = 0; i < ileLiterWslowie; i++)
+            for (int i = 0; i < ileLiterWslowie; i++)
             {
-                litery[i] = "*";
+                litery[i] = '*';
             }
-           
 
+            int mistakes = 0;  // ilość błędnych odpowiedzi
 
-
-
-           // Console.WriteLine(haslo + " -Twoje hasło ma 6 liter"); // wylosowane słowo do odgadnięcia. 
-
-            Console.WriteLine("     Podpowiedź     ");
-
-            Console.WriteLine(prompt.GetValue(wordID)); // podpowiedź
-
-
+            Console.Write("Twoje słowo to: ");
+            Console.Write(litery);
+            Console.WriteLine();
+            // Console.WriteLine(haslo + " -Twoje hasło ma 6 liter"); // wylosowane słowo do odgadnięcia. 
+            Console.Write("     Podpowiedź:     ");
+            Console.Write(prompt.GetValue(wordID)); // podpowiedź
+            Console.WriteLine();
+            //Console.WriteLine("Podaj literę: ");
             string test = Console.ReadLine(); // sprawdzanie litery
-                                              // bool a = haslo.Contains(test);
-            Console.ReadKey();
-            Console.Clear();
+            // bool a = haslo.Contains(test);
+            int maxMistake = ileLiterWslowie + 3;
+            bool start = true;
+            int sum;
+            
 
-            int sum = 0;
+            while (start)
+            {
+                Console.WriteLine(ileLiterWslowie);
+                Console.Write("Podaj literę: ");
+                string znak = Console.ReadLine();
+                char litera;
+                bool trafiony;
+                bool caleSlowo;
 
+                if (znak.Length >=1)
+                {
+                    litera = znak.ElementAt(0);
+                }
+                else
+                {
+                    continue;
+                }
+
+
+                Console.WriteLine(litery);
+
+
+            }
+
+
+            /*
             if (haslo.Contains(test))
             {
                 Console.WriteLine(test + " -zgadłeś");
                 Console.WriteLine("otrzymujesz 1pkt!");
-                sum++;
-                Console.WriteLine("Twoje punty: " + sum);
-
-
+                mistakes++;
+                Console.WriteLine("Twoje punty: " + mistakes);
             }
             else
             {
                 Console.WriteLine("zadane słowo nie zawiera tej litery - brak punktów");
-
             }
-            // Console.WriteLine(a);
-
-            /*
+            // Console.WriteLine(a);           
             var replacement = haslo.Replace(haslo, "*");
             Console.WriteLine(replacement);
-            */
-
             Console.ReadLine();
             Console.ReadKey();
+            */
         }
     }
 
