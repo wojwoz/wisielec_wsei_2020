@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 
 namespace wisielec_wsei_2020
@@ -45,9 +44,7 @@ namespace wisielec_wsei_2020
             Console.WriteLine("Cześć " + name); //wyświetla powitanie gracza
             Console.WriteLine("czy znasz zasady gry? (t/m)"); //weryfikacja znajomości zasad gry
                                                               //string answer = Console.ReadLine(); //odpowiedź udzielona przez gracza
-
             string decyzja = Console.ReadLine();
-
             while (true)
             {
 
@@ -70,7 +67,8 @@ namespace wisielec_wsei_2020
 
 
             }
-            while(true)
+            bool start = true;
+            while (start)
             {
                 Console.WriteLine("Losuj słowo - naciśnij dowolny klawisz");
                 Console.ReadKey();
@@ -113,29 +111,29 @@ namespace wisielec_wsei_2020
 
                 string[] prompt =
                 { "sprzedana przez rosję do USA","można się w niej schronić latem", "inaczej kawon", "błękitna krew",
-            "pierwotniak",
-            "inaczej figa rajska",
-            "pierwszy astrologiczny znak zodiaku",
-            "człowiek ze śniegu",
-            "spodnie i wyspy",
-            "może być wieprzowy",
-            "lata na miotle",
-            "ciągle ucieka",
-            "rozmówca hamleta",
-            "roślina z rodziny rutowatych",
-            "grzeje w zimie osłania latem",
-            "moja twierdza",
-            "wieloletnia roślina  o zdrewniały jednym pędzie głównym np. bonsai",
-            "może być kolczasty",
-            "np.Jakubowa lub tytuł piosenki led zeppelin",
-            "Latał na nim Alladyn",
-            "w czasie pożaru",
-            "inaczej poemat",
-            "stary kontynent",
-            "kraj w Afryce",
-            "państwo Ozyrysa",
-            "instrument np. poprzeczny",
-            "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
+                   "pierwotniak",
+                    "inaczej figa rajska",
+                     "pierwszy astrologiczny znak zodiaku",
+                       "człowiek ze śniegu",
+                    "spodnie i wyspy",
+                         "może być wieprzowy",
+                             "lata na miotle",
+                             "ciągle ucieka",
+                        "rozmówca hamleta",
+                        "roślina z rodziny rutowatych",
+                            "grzeje w zimie osłania latem",
+                            "moja twierdza",
+                        "wieloletnia roślina  o zdrewniały jednym pędzie głównym np. bonsai",
+                        "może być kolczasty",
+                            "np.Jakubowa lub tytuł piosenki led zeppelin",
+                            "Latał na nim Alladyn",
+                         "w czasie pożaru",
+                        "inaczej poemat",
+                        "stary kontynent",
+                     "kraj w Afryce",
+                            "państwo Ozyrysa",
+                            "instrument np. poprzeczny",
+                            "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
 
 
                 int wordID = los.Next(words.Length); //losowanie indeksu słowa
@@ -166,11 +164,11 @@ namespace wisielec_wsei_2020
                 var test = Console.ReadLine(); // sprawdzanie litery
                 ;
                 int maxMistake = ileLiterWslowie + 3;
-                bool start = true;
+               
                 int sum = 0;
 
 
-                while (start)
+                while(start)
                 {
 
 
@@ -184,7 +182,7 @@ namespace wisielec_wsei_2020
                     string znak = Console.ReadLine();
 
                     char litera;
-                 
+
                     bool caleSlowo;
                     caleSlowo = false;
 
@@ -204,7 +202,7 @@ namespace wisielec_wsei_2020
                         if (litera == haslo.ElementAt(i))
                         {
                             litery[i] = litera;
-                           
+
                         }
                     }
                     if (!haslo.Contains(znak))
@@ -220,16 +218,7 @@ namespace wisielec_wsei_2020
                         }
                         caleSlowo = true;
                     }
-
-                    if (maxMistake == 0)
-                    {
-                        Console.WriteLine("przegrałeś");
-                        Console.WriteLine();
-
-                        break;
-
-                    }
-
+                    Console.Clear();
 
 
                     if (mistakes == 1)
@@ -243,27 +232,26 @@ namespace wisielec_wsei_2020
                         Console.WriteLine($"Popełniłeś {mistakes} błędy");
 
                     }
-
+                    if (maxMistake == 0)
+                    {
+                        Console.WriteLine("przegrałeś");
+                        Console.WriteLine();
+                        start = false;
+                    }
                     if (caleSlowo)
                     {
                         Console.WriteLine("\nZgadłeś słowo");
                         Console.WriteLine();
                         Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
                     }
-              
-
-                    
-                 
-                    
-                    
 
 
 
-                }
 
+                } 
             }
 
-            
+
 
 
 
