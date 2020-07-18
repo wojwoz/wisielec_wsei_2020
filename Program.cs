@@ -65,18 +65,19 @@ namespace wisielec_wsei_2020
                     break;
 
                 }
-            
+
 
 
             }
+            while(true)
+            {
+                Console.WriteLine("Losuj słowo - naciśnij dowolny klawisz");
+                Console.ReadKey();
+                Console.Clear();
+                Random los = new Random();
 
-            Console.WriteLine("Losuj słowo - naciśnij dowolny klawisz");
-            Console.ReadKey();
-            Console.Clear();
-            Random los = new Random();
 
-
-            string[] words = {
+                string[] words = {
                 "alaska",
                 "altana",
                 "arbuz",
@@ -109,8 +110,8 @@ namespace wisielec_wsei_2020
                 "falbana"
             };
 
-            string[] prompt =
-            { "sprzedana przez rosję do USA","można się w niej schronić latem", "inaczej kawon", "błękitna krew",
+                string[] prompt =
+                { "sprzedana przez rosję do USA","można się w niej schronić latem", "inaczej kawon", "błękitna krew",
             "pierwotniak",
             "inaczej figa rajska",
             "pierwszy astrologiczny znak zodiaku",
@@ -136,126 +137,154 @@ namespace wisielec_wsei_2020
             "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
 
 
-            int wordID = los.Next(words.Length); //losowanie indeksu słowa
+                int wordID = los.Next(words.Length); //losowanie indeksu słowa
 
-            string haslo = words[wordID]; // losowanie słowa
-            int ileLiterWslowie = haslo.Length; // zasłonięcie liter
-            char[] litery = new char[haslo.Length];
-
-            for (int i = 0; i < ileLiterWslowie; i++)
-            {
-                litery[i] = '*';
-            }
-
-            int mistakes = 0;  // ilość błędnych odpowiedzi
-
-            Console.Write("Twoje słowo to: ");
-            Console.Write(litery);
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine(
-                $"-Twoje hasło ma {ileLiterWslowie} liter"); // wylosowane słowo do odgadnięcia. 
-            Console.WriteLine();
-            Console.Write("     Podpowiedź:     ");
-            Console.Write(prompt.GetValue(wordID)); // podpowiedź
-
-            Console.WriteLine();
-            //Console.WriteLine("Podaj literę: ");
-            string test = Console.ReadLine(); // sprawdzanie litery
-            // bool a = haslo.Contains(test);
-            int maxMistake = ileLiterWslowie + 3;
-            bool start = true;
-            int sum = 0;
-
-
-            while (start)
-            {
-
-
-
-                Console.WriteLine();
-                Console.WriteLine(" pozostało Ci  " + (maxMistake -= 1) + " prób");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine(litery);
-                Console.Write("Podaj literę: ");
-                string znak = Console.ReadLine();
-
-                char litera;
-                bool trafiony = false;
-                bool caleSlowo;
-                caleSlowo = false;
-
-
-                if (znak.Length > 0)
-                {
-                    litera = znak.ElementAt(0);
-                    sum += 1;
-                }
-                else
-                {
-                    continue;
-                }
+                string haslo = words[wordID]; // losowanie słowa
+                int ileLiterWslowie = haslo.Length; // zasłonięcie liter
+                char[] litery = new char[haslo.Length];
 
                 for (int i = 0; i < ileLiterWslowie; i++)
                 {
-                    if (litera == haslo.ElementAt(i))
+                    litery[i] = '*';
+                }
+
+                int mistakes = 0;  // ilość błędnych odpowiedzi
+
+                Console.Write("Twoje słowo to: ");
+                Console.Write(litery);
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine(
+                    $"-Twoje hasło ma {ileLiterWslowie} liter"); // wylosowane słowo do odgadnięcia. 
+                Console.WriteLine();
+                Console.Write("     Podpowiedź:     ");
+                Console.Write(prompt.GetValue(wordID)); // podpowiedź
+
+                Console.WriteLine();
+
+                var test = Console.ReadLine(); // sprawdzanie litery
+                ;
+                int maxMistake = ileLiterWslowie + 3;
+                bool start = true;
+                int sum = 0;
+
+
+                while (start)
+                {
+
+
+
+                    Console.WriteLine();
+                    Console.WriteLine(" pozostało Ci  " + (maxMistake -= 1) + " prób");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine(litery);
+                    Console.Write("Podaj literę: ");
+                    string znak = Console.ReadLine();
+
+                    char litera;
+                 
+                    bool caleSlowo;
+                    caleSlowo = false;
+
+
+                    if (znak.Length > 0)
                     {
-                        litery[i] = litera;
-                        trafiony = true;
+                        litera = znak.ElementAt(0);
+                        sum += 1;
                     }
-                }
-                if (!haslo.Contains(znak))
-                {
-                    mistakes += 1;
-                }
-                for (int i = 0; i < ileLiterWslowie; i++)
-                {
-                    if (litery[i] == '*')
+                    else
                     {
-                        caleSlowo = false;
+                        continue;
+                    }
+
+                    for (int i = 0; i < ileLiterWslowie; i++)
+                    {
+                        if (litera == haslo.ElementAt(i))
+                        {
+                            litery[i] = litera;
+                           
+                        }
+                    }
+                    if (!haslo.Contains(znak))
+                    {
+                        mistakes += 1;
+                    }
+                    for (int i = 0; i < ileLiterWslowie; i++)
+                    {
+                        if (litery[i] == '*')
+                        {
+                            caleSlowo = false;
+                            break;
+                        }
+                        caleSlowo = true;
+                    }
+
+
+                    if (maxMistake == 0)
+                    {
+                        Console.WriteLine("przegrałeś");
                         break;
                     }
-                    caleSlowo = true;
+
+
+
+                    if (mistakes == 1)
+                    {
+                        Console.WriteLine($"Popełniłeś {mistakes} błąd");
+
+                    }
+
+                    else if (mistakes > 1)
+                    {
+                        Console.WriteLine($"Popełniłeś {mistakes} błędy");
+
+                    }
+
+                    if (caleSlowo)
+                    {
+                        Console.WriteLine("\nZgadłeś słowo");
+                        Console.WriteLine();
+                        Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
+                    }
+                    if (mistakes == maxMistake)
+                    {
+                        Console.WriteLine("Przegrałeś");
+                        Console.WriteLine();
+                        Console.WriteLine("czy cgcesz grać dalej?   wybierz  Odp:  (T)ak lub (N)ie");
+                        string end = Console.ReadLine();
+                        Console.WriteLine();
+                        Console.ReadLine();
+
+                        if (end.ToLower() == "t")
+                        {
+                            continue;
+                        }
+
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    start = true;
+
+                 
+                    
+                    
+
+
+
                 }
 
-
-                if (maxMistake == 0)
-                {
-                    Console.WriteLine("przegrałeś");
-                    break;
-                }
-
-
-
-                if (mistakes == 1)
-                {
-                    Console.WriteLine($"Popełniłeś {mistakes} błąd");
-
-                }
-
-                else if (mistakes > 1)
-                {
-                    Console.WriteLine($"Popełniłeś {mistakes} błędy");
-
-                }
-
-                if (caleSlowo)
-                {
-                    Console.WriteLine("\nZgadłeś słowo");
-                    Console.WriteLine();
-                    Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
-                }
-                if(mistakes ==maxMistake)
-                {
-                    Console.WriteLine("Przegrałeś");
-                }
             }
 
+            
 
 
 
-          
+
+
 
         }
     }
