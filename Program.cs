@@ -42,9 +42,12 @@ namespace wisielec_wsei_2020
             string name = Console.ReadLine();
 
             Console.WriteLine("Cześć " + name); //wyświetla powitanie gracza
-            Console.WriteLine("czy znasz zasady gry? (t/m)"); //weryfikacja znajomości zasad gry
-                                                              //string answer = Console.ReadLine(); //odpowiedź udzielona przez gracza
-            while(true)
+            Console.WriteLine("Zapoznaj się z zasadami gry!");
+            Console.WriteLine();
+            Console.WriteLine("Musisz odgadnąć słowo ukryte pod narysowanymi gwiazdkami. Za każdym razem, gdy Ci się to uda, wstawię literę w odpowiednie miejsce; w przeciwnym razie tracisz swoją szansę. Masz kilka prób odgadnięcia słowa (liczba liter w słowie + 2) oraz podpowiedź. Jeśli zgadniesz słowo zanim skończą Ci się szanse - wygrywasz. Powodzenia!");
+            Console.WriteLine();
+            Console.WriteLine("Czy możemy zaczynać? Odp:  (T)ak lub (N)ie");
+            while (true)
             {
                 string decyzja = Console.ReadLine();
 
@@ -152,7 +155,7 @@ namespace wisielec_wsei_2020
 
                             var test = Console.ReadLine(); // sprawdzanie litery
                             ;
-                            int maxMistake = ileLiterWslowie + 3;
+                            int maxMistake = ileLiterWslowie + 2;
 
                             int sum = 0;
 
@@ -251,9 +254,8 @@ namespace wisielec_wsei_2020
                     }
                     break;
                 }
-                Console.WriteLine(name); //wyświetla powitanie gracza
-                Console.WriteLine("czy cgcesz zagrać jeszcze raz? (t/m)"); //weryfikacja znajomości zasad gry
-                                                                           //string answer = Console.ReadLine(); //odpowiedź udzielona przez gracza
+                Console.WriteLine(name); 
+                Console.WriteLine("czy chcesz zagrać jeszcze raz? (t/n)");
                 if (decyzja.ToLower() == "n")
                 {
                     Console.WriteLine("koniec gry !!!");
