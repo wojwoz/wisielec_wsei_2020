@@ -76,11 +76,11 @@ namespace wisielec_wsei_2020
 
 
             string[] words = {
-                "Alaska",
-                "Altana",
-                "Arbuz",
-                "Arystokracja",
-                "Ameba",
+                "alaska",
+                "altana",
+                "arbuz",
+                "arystokracja",
+                "ameba",
                 "banan",
                 "baran",
                 "bałwan",
@@ -99,8 +99,8 @@ namespace wisielec_wsei_2020
                 "ewakuacja",
                 "epopeja",
                 "europa",
-                "Etiopia",
-                "Egipt",
+                "etiopia",
+                "egipt",
                 "flet",
                 "finka",
                 "farba",
@@ -243,7 +243,7 @@ namespace wisielec_wsei_2020
                 {
                     Console.WriteLine("\nZgadłeś słowo");
                     Console.ReadLine();
-                    Console.WriteLine("Twoje słowo to :" + haslo);
+                    Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
                     start = false;
                 }
 
