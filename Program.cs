@@ -47,7 +47,7 @@ namespace wisielec_wsei_2020
 
             string decyzja = Console.ReadLine();
 
-            while (decyzja.ToLower() == "t")
+            while (true)
             {
 
                 if (decyzja.ToLower() == "t")
@@ -62,9 +62,10 @@ namespace wisielec_wsei_2020
                     Console.WriteLine("zasady");
                     Console.WriteLine("Czy możemy zaczynać? Odp:  (T)ak lub (N)ie");
 
-
+                    break;
 
                 }
+            
 
 
             }
@@ -167,7 +168,7 @@ namespace wisielec_wsei_2020
             int sum = 0;
 
 
-            while (start && sum < (ileLiterWslowie + 3))
+            while (start)
             {
 
 
@@ -181,7 +182,7 @@ namespace wisielec_wsei_2020
                 string znak = Console.ReadLine();
 
                 char litera;
-                bool trafiony;
+                bool trafiony = false;
                 bool caleSlowo;
                 caleSlowo = false;
 
@@ -242,34 +243,20 @@ namespace wisielec_wsei_2020
                 if (caleSlowo)
                 {
                     Console.WriteLine("\nZgadłeś słowo");
-                    Console.ReadLine();
+                    Console.WriteLine();
                     Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
-                    start = false;
                 }
-
+                if(mistakes ==maxMistake)
+                {
+                    Console.WriteLine("Przegrałeś");
+                }
             }
 
 
 
 
-            /*
-            if (haslo.Contains(test))
-            {
-                Console.WriteLine(test + " -zgadłeś");
-                Console.WriteLine("otrzymujesz 1pkt!");
-                mistakes++;
-                Console.WriteLine("Twoje punty: " + mistakes);
-            }
-            else
-            {
-                Console.WriteLine("zadane słowo nie zawiera tej litery - brak punktów");
-            }
-            // Console.WriteLine(a);           
-            var replacement = haslo.Replace(haslo, "*");
-            Console.WriteLine(replacement);
-            Console.ReadLine();
-            Console.ReadKey();
-            */
+          
+
         }
     }
 
