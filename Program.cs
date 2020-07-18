@@ -69,25 +69,6 @@ namespace wisielec_wsei_2020
 
             }
 
-
-
-            /*
-            // do przebudowy
-            if (answer.ToLower() == "t") //jeśli gracz wybierze  t  rozpoczynamy grę
-            {
-                Console.WriteLine("Zaczynamy grę!");
-                Console.Clear();
-            }
-            else if (answer.ToLower() == "n") //jeśli gracz wybierze  n  musi zapoznać się z zasadami
-            {
-                Console.WriteLine("\tPierwszy gracz wymyśla słowo, ujawniając na przykład za pomocą poziomych kresek liczbę tworzących je liter. \nDrugi z graczy stara się odgadnąć litery słowa. Za każdym razem, gdy mu się to uda, pierwszy gracz wstawia literę w odpowiednie miejsce; \nw przeciwnym wypadku rysuje element symbolicznej szubienicy i wiszącego na niej ludzika. Jeżeli pierwszy gracz narysuje kompletnego „wisielca” zanim drugi odgadnie słowo, wówczas wygrywa. \nW zależności od wcześniej ustalonego stopnia skomplikowania rysunku „wisielca” (liczba elementów potrzebna do jego narysowania), gra pozwala na mniej lub więcej pomyłek odgadującego[1].");
-            }
-
-            else
-            {
-                Console.WriteLine("błędna odpowiedź, wybierz T -  jak tak  lun N - jak nie! ");
-            }
-            */
             Console.WriteLine("Losuj słowo - naciśnij dowolny klawisz");
             Console.ReadKey();
             Console.Clear();
@@ -189,8 +170,8 @@ namespace wisielec_wsei_2020
             while (start && sum < (ileLiterWslowie + 3))
             {
 
-               
-               
+
+
                 Console.WriteLine();
                 Console.WriteLine(" pozostało Ci  " + (maxMistake -= 1) + " prób");
                 Console.WriteLine();
@@ -198,7 +179,7 @@ namespace wisielec_wsei_2020
                 Console.WriteLine(litery);
                 Console.Write("Podaj literę: ");
                 string znak = Console.ReadLine();
-                
+
                 char litera;
                 bool trafiony;
                 bool caleSlowo;
@@ -214,7 +195,7 @@ namespace wisielec_wsei_2020
                 {
                     continue;
                 }
-                
+
                 for (int i = 0; i < ileLiterWslowie; i++)
                 {
                     if (litera == haslo.ElementAt(i))
@@ -236,17 +217,17 @@ namespace wisielec_wsei_2020
                     }
                     caleSlowo = true;
                 }
-                
+
 
                 if (maxMistake == 0)
                 {
                     Console.WriteLine("przegrałeś");
                     break;
                 }
-             
 
-               
-                if(mistakes == 1)
+
+
+                if (mistakes == 1)
                 {
                     Console.WriteLine($"Popełniłeś {mistakes} błąd");
 
@@ -269,7 +250,7 @@ namespace wisielec_wsei_2020
 
 
 
-         
+
             /*
             if (haslo.Contains(test))
             {
