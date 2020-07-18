@@ -49,7 +49,7 @@ namespace wisielec_wsei_2020
 
             while (decyzja.ToLower() == "t")
             {
-                
+
                 if (decyzja.ToLower() == "t")
                 {
                     Console.WriteLine("Zaczynamy grę!");
@@ -61,11 +61,11 @@ namespace wisielec_wsei_2020
                     Console.WriteLine("Zapoznaj się z zasadami gry!");
                     Console.WriteLine("zasady");
                     Console.WriteLine("Czy możemy zaczynać? Odp:  (T)ak lub (N)ie");
-                   
 
-                   
+
+
                 }
-                
+
 
             }
 
@@ -170,43 +170,106 @@ namespace wisielec_wsei_2020
             Console.Write("Twoje słowo to: ");
             Console.Write(litery);
             Console.WriteLine();
-            // Console.WriteLine(haslo + " -Twoje hasło ma 6 liter"); // wylosowane słowo do odgadnięcia. 
+            Console.WriteLine();
+            Console.WriteLine(
+                $"-Twoje hasło ma {ileLiterWslowie} liter"); // wylosowane słowo do odgadnięcia. 
+            Console.WriteLine();
             Console.Write("     Podpowiedź:     ");
             Console.Write(prompt.GetValue(wordID)); // podpowiedź
+
             Console.WriteLine();
             //Console.WriteLine("Podaj literę: ");
             string test = Console.ReadLine(); // sprawdzanie litery
             // bool a = haslo.Contains(test);
             int maxMistake = ileLiterWslowie + 3;
             bool start = true;
-            int sum;
-            
+            int sum = 0;
 
-            while (start)
+
+            while (start && sum < (ileLiterWslowie + 3))
             {
-                Console.WriteLine(ileLiterWslowie);
+
+               
+               
+                Console.WriteLine();
+                Console.WriteLine(" pozostało Ci  " + (maxMistake -= 1) + " prób");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine(litery);
                 Console.Write("Podaj literę: ");
                 string znak = Console.ReadLine();
+                
                 char litera;
                 bool trafiony;
                 bool caleSlowo;
+                caleSlowo = false;
 
-                if (znak.Length >=1)
+
+                if (znak.Length > 0)
                 {
                     litera = znak.ElementAt(0);
+                    sum += 1;
                 }
                 else
                 {
                     continue;
                 }
+                
+                for (int i = 0; i < ileLiterWslowie; i++)
+                {
+                    if (litera == haslo.ElementAt(i))
+                    {
+                        litery[i] = litera;
+                        trafiony = true;
+                    }
+                }
+                if (!haslo.Contains(znak))
+                {
+                    mistakes += 1;
+                }
+                for (int i = 0; i < ileLiterWslowie; i++)
+                {
+                    if (litery[i] == '*')
+                    {
+                        caleSlowo = false;
+                        break;
+                    }
+                    caleSlowo = true;
+                }
+                
 
+                if (maxMistake == 0)
+                {
+                    Console.WriteLine("przegrałeś");
+                    break;
+                }
+             
 
-                Console.WriteLine(litery);
+               
+                if(mistakes == 1)
+                {
+                    Console.WriteLine($"Popełniłeś {mistakes} błąd");
 
+                }
+
+                else if (mistakes > 1)
+                {
+                    Console.WriteLine($"Popełniłeś {mistakes} błędy");
+
+                }
+
+                if (caleSlowo)
+                {
+                    Console.WriteLine("\nZgadłeś słowo");
+                    Console.ReadLine();
+                    start = false;
+                }
 
             }
 
 
+
+         
             /*
             if (haslo.Contains(test))
             {
