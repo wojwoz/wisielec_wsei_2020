@@ -167,8 +167,8 @@ namespace wisielec_wsei_2020
                
                 int sum = 0;
 
-
-                while(start)
+                bool start2 = true;
+                while (start2)
                 {
 
 
@@ -232,11 +232,15 @@ namespace wisielec_wsei_2020
                         Console.WriteLine($"Popełniłeś {mistakes} błędy");
 
                     }
+
+
                     if (maxMistake == 0)
                     {
                         Console.WriteLine("przegrałeś");
                         Console.WriteLine();
-                        start = false;
+                        start2 = false;
+                        
+
                     }
                     if (caleSlowo)
                     {
@@ -247,8 +251,10 @@ namespace wisielec_wsei_2020
 
 
 
-
                 } 
+
+
+
             }
 
 
