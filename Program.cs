@@ -168,7 +168,7 @@ namespace wisielec_wsei_2020
                 int sum = 0;
 
                 bool start2 = true;
-                while (start2)
+                while (start2 == true)
                 {
 
 
@@ -247,11 +247,19 @@ namespace wisielec_wsei_2020
                         Console.WriteLine("\nZgadłeś słowo");
                         Console.WriteLine();
                         Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
+                        start2 = false;
+                    }
+
+                    if(start2 == false)
+                    {
+                        start = false;
+                        break;
                     }
 
 
-
                 } 
+
+
 
 
 
