@@ -243,6 +243,7 @@ namespace wisielec_wsei_2020
                 {
                     Console.WriteLine("\nZgadłeś słowo");
                     Console.ReadLine();
+                    Console.WriteLine("Twoje słowo to :" + haslo);
                     start = false;
                 }
 
