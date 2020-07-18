@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace wisielec_wsei_2020
@@ -220,11 +221,13 @@ namespace wisielec_wsei_2020
                         caleSlowo = true;
                     }
 
-
                     if (maxMistake == 0)
                     {
                         Console.WriteLine("przegrałeś");
+                        Console.WriteLine();
+
                         break;
+
                     }
 
 
@@ -247,28 +250,9 @@ namespace wisielec_wsei_2020
                         Console.WriteLine();
                         Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
                     }
-                    if (mistakes == maxMistake)
-                    {
-                        Console.WriteLine("Przegrałeś");
-                        Console.WriteLine();
-                        Console.WriteLine("czy cgcesz grać dalej?   wybierz  Odp:  (T)ak lub (N)ie");
-                        string end = Console.ReadLine();
-                        Console.WriteLine();
-                        Console.ReadLine();
+              
 
-                        if (end.ToLower() == "t")
-                        {
-                            continue;
-                        }
-
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                    start = true;
-
+                    
                  
                     
                     
