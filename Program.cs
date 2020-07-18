@@ -100,7 +100,6 @@ namespace wisielec_wsei_2020
                 "flaga",
                 "falbana"
             };
-
                             string[] prompt =
                             { "sprzedana przez rosję do USA","można się w niej schronić latem", "inaczej kawon", "błękitna krew",
                    "pierwotniak",
@@ -126,21 +125,15 @@ namespace wisielec_wsei_2020
                             "państwo Ozyrysa",
                             "instrument np. poprzeczny",
                             "mały nożyk", "służy do malowania", "każdy kraj  ma swoją", "w sukience", "rośnie po deszczu", "zostaje po zawalonym budynku", "hydra miała ich siedem", "typowy ptak na rynku Krakowskim", "smaczny owoc"};
-
-
                             int wordID = los.Next(words.Length); //losowanie indeksu słowa
-
                             string haslo = words[wordID]; // losowanie słowa
                             int ileLiterWslowie = haslo.Length; // zasłonięcie liter
                             char[] litery = new char[haslo.Length];
-
                             for (int i = 0; i < ileLiterWslowie; i++)
                             {
                                 litery[i] = '*';
                             }
-
                             int mistakes = 0;  // ilość błędnych odpowiedzi
-
                             Console.Write("Twoje słowo to: ");
                             Console.Write(litery);
                             Console.WriteLine();
@@ -150,21 +143,13 @@ namespace wisielec_wsei_2020
                             Console.WriteLine();
                             Console.Write("     Podpowiedź:     ");
                             Console.Write(prompt.GetValue(wordID)); // podpowiedź
-
                             Console.WriteLine();
-
                             var test = Console.ReadLine(); // sprawdzanie litery
-                            ;
                             int maxMistake = ileLiterWslowie + 2;
-
                             int sum = 0;
-
                             bool start2 = true;
                             while (start2 == true)
                             {
-
-
-
                                 Console.WriteLine();
                                 Console.WriteLine(" pozostało Ci  " + (maxMistake -= 1) + " prób");
                                 Console.WriteLine();
@@ -172,13 +157,9 @@ namespace wisielec_wsei_2020
                                 Console.WriteLine(litery);
                                 Console.Write("Podaj literę: ");
                                 string znak = Console.ReadLine();
-
                                 char litera;
-
                                 bool caleSlowo;
                                 caleSlowo = false;
-
-
                                 if (znak.Length > 0)
                                 {
                                     litera = znak.ElementAt(0);
@@ -188,13 +169,11 @@ namespace wisielec_wsei_2020
                                 {
                                     continue;
                                 }
-
                                 for (int i = 0; i < ileLiterWslowie; i++)
                                 {
                                     if (litera == haslo.ElementAt(i))
                                     {
                                         litery[i] = litera;
-
                                     }
                                 }
                                 if (!haslo.Contains(znak))
@@ -211,28 +190,19 @@ namespace wisielec_wsei_2020
                                     caleSlowo = true;
                                 }
                                 Console.Clear();
-
-
                                 if (mistakes == 1)
                                 {
                                     Console.WriteLine($"Popełniłeś {mistakes} błąd");
-
                                 }
-
                                 else if (mistakes > 1)
                                 {
                                     Console.WriteLine($"Popełniłeś {mistakes} błędy");
-
                                 }
-
-
                                 if (maxMistake == 0)
                                 {
                                     Console.WriteLine("przegrałeś");
                                     Console.WriteLine();
                                     start2 = false;
-
-
                                 }
                                 if (caleSlowo)
                                 {
@@ -241,39 +211,24 @@ namespace wisielec_wsei_2020
                                     Console.WriteLine("Twoje słowo to : " + haslo + "!!!");
                                     start2 = false;
                                 }
-
                                 if (start2 == false)
                                 {
                                     start = false;
                                     break;
                                 }
                             }
-
                         }
-
                     }
                     break;
                 }
-                Console.WriteLine(name); 
+                Console.WriteLine(name);
                 Console.WriteLine("czy chcesz zagrać jeszcze raz? (t/n)");
                 if (decyzja.ToLower() == "n")
                 {
                     Console.WriteLine("koniec gry !!!");
                     break;
-
                 }
             }
-
-
-
-
-
-
-
-
-
         }
     }
-
-
 }
